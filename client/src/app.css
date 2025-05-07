@@ -1,0 +1,36 @@
+:root {
+    display: flex;
+    background-color: rgb(101, 123, 132);
+    align-items: center;
+    flex-direction: column;
+}
+.appbox{
+    margin-top: 400px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: bisque;
+    width: 700px;
+    align-content: center;
+}
+
+.title {
+    font-size: 5rem;
+}
+
+.text-box{
+    display: flex;
+    align-items: center;
+}
+
+.buttons{
+    border-radius: 15%;
+}
+
+.contract-interactions {
+    display: flex;
+    align-items: row;
+    align-content: center;
+    padding: 10px;
+    margin-left: 120px;
+}
