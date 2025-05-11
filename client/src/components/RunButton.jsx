@@ -7,7 +7,7 @@ const styles = {
     padding: '20px 40px',
     borderRadius: '5px',
     border: '2px',
-    marginRight: '100px'
+    marginRight: '30px'
 };
 
 function runGameButton() {

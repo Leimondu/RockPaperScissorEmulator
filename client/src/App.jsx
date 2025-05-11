@@ -3,11 +3,13 @@ import ConnectWalletButton from "./components/ConnectWalletButton";
 import RunGameButton from "./components/RunButton";
 import GetWinnerButton from "./components/GetWInnerButton";
 import GetPlayersButton from "./components/GetPlayersButton";
+import GetNFTOwnerButton from "./components/GetNFTOwnerButton";
 import { requestAccount } from "./utils/contractServices";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ContractInfo from "./components/ContractInfo";
 import './app.css';
+
 
 function App() {
   const [account, setAccount] = useState(null);
@@ -34,6 +36,7 @@ function App() {
             <RunGameButton className="buttons" />
             <GetWinnerButton/>
             <GetPlayersButton/>
+            <GetNFTOwnerButton/>
           </div>
         </div>
         

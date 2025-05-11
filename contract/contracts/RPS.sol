@@ -10,8 +10,6 @@ contract Main {
     event tourneyWinner(address indexed winner, string message);
 
     address finalWinner;
-    address nftContractAddress;
-    address tourneyAddress;
     address [] players;
 
     //Collecting the addresses of the players
@@ -55,18 +53,11 @@ contract Main {
     function getWinner() public view returns (address) {
         return finalWinner;
     }
-    
-    function getNumNFTs(address winner) public view returns (uint) {
-        return nft.balanceOf(winner);
-    }
-    function getTourneyAddr() public view returns (address){
-        return tourneyAddress;
-    }
-    function getnftAddr() public view returns (address){
-        return nftContractAddress;
-    }
     function getPlayers() public view returns (address [] memory){
         return players;
+    }
+    function getNFTOwner(uint256 tokenId) public view returns (address) {
+        return nft.getOwner(tokenId);
     }
 }
 
@@ -159,6 +150,10 @@ contract NFT {
         //Remove from the nftList mapping
         delete nftList[tokenId]; 
     }
+
+    function getOwner(uint256 tokenId) public view returns (address) {
+        return nftToOwner[tokenId];
+    }
 }
 
 contract tourney {
@@ -182,8 +177,8 @@ contract tourney {
         player4 = ad4;
     }
     //rolls rock(0), paper(1), scissor(2)
-    function roll() public view returns(uint) {
-        return uint(keccak256(abi.encodePacked(block.prevrandao, msg.sender))) % 3;
+    function roll( ) public view returns(uint) {
+        return uint(keccak256(abi.encodePacked(block.timestamp))) % 3;
     }
     function judge(address playerA, address playerB) public returns (address) {
         //ROCK = 0, PAPER = 1, SCISSOR = 2
@@ -223,12 +218,12 @@ contract tourney {
     //starts a game of RPS (Rock, Paper, Scissors)
     function gameStart () public {
         //assigns a roll to each 
-        rolls[player1] = (roll()+1 + uint(keccak256(abi.encodePacked(player1))) )% 3;
-        rolls[player2] = (roll()+2 + uint(keccak256(abi.encodePacked(player2))) )% 3;
+        rolls[player1] = (roll()+1)% 3;
+        rolls[player2] = (roll()+2)% 3;
         winners[0] = judge(player1,player2);
 
-        rolls[player3] = (roll()+3 + uint(keccak256(abi.encodePacked(player3))) )% 3;
-        rolls[player4] = (roll()+4 + uint(keccak256(abi.encodePacked(player4))) )% 3;
+        rolls[player3] = (roll()+3)% 3;
+        rolls[player4] = (roll()+4 )% 3;
         winners[1] = judge(player3,player4);
     }
 

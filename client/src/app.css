@@ -4,15 +4,18 @@
     align-items: center;
     flex-direction: column;
 }
-.appbox{
-    margin-top: 400px;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    background-color: bisque;
-    width: 700px;
-    align-content: center;
-}
+
+
+.appbox {
+    max-width: 700px;
+    margin: 3rem auto;
+    padding: 2rem;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
 
 .title {
     font-size: 5rem;
@@ -21,6 +24,7 @@
 .text-box{
     display: flex;
     align-items: center;
+    align-content: center;
 }
 
 .buttons{
@@ -32,5 +36,5 @@
     align-items: row;
     align-content: center;
     padding: 10px;
-    margin-left: 120px;
+    margin-left: auto;
 }

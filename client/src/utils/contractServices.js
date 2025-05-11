@@ -32,7 +32,7 @@ export const requestAccount = async () => {
 };
 
 export const run = async () =>  {
-    const runtx = await contract.run();
+    const runtx = await contract.run({gas: 9999999});
     await runtx.wait();
     console.log("Game is done, winner decided!");
 };
@@ -47,4 +47,10 @@ export const getPlayers = async () => {
     const players = await contract.getPlayers();
     console.log("Players recieved: ", players);
     return players;
+};
+
+export const getNFTOwner = async (tokenId) => {
+    const nftOwner = await contract.getNFTOwner(tokenId);
+    console.log("NFT Owner for NFT ID: ", tokenId, " is: ", nftOwner );
+    return nftOwner;
 }
